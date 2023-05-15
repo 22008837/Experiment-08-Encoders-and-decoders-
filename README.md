@@ -55,42 +55,75 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
+Step-1:
 
+create module encoder and decoder.
 
+Step-2:
+
+Get inputs and outputs for encoders and decoders.
+
+Step-3:
+
+perform or operation for encoder and and logic for decoders.
+
+Step-4:
+
+perform RTL LOGIC and get waveform.
+
+Step-5:
+
+End the module.
 
 ### PROGRAM 
 /*
+```
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: C.Prabha
+RegisterNumber:  212222110032
+
+## Decoder
+module decoder(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+input a,b,c:
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0 = (~a&~b&~c);
+assign d1 = (~a&~b&c);
+assign d2 = (~a&b&~c);
+assign d3 = (~a&b&c);
+assign d4 = (a&~b&~c);
+assign d5 = (a&~b&c);
+assign d6 = (a&b&~c);
+assign d7 = (a&b&c);
+endmodule
+
+## Encoder
+module Encode(x,y,z,d0,d1,d2,d3,d4,d5,d6,d7);
+input d0,d1,d2,d3,d4,d5,d6,d7;
+output x,y,z;
+or (x,d4,d5,d6,d7);
+or (y,d2,d3,d5,d7);
+or (z,d1,d3,d5,d7);
+endmodule
+```
 */
 
-
-
-
-
-
 ### RTL LOGIC  
-
-
-
-
-
-
-
+## Encoder:
+![Encoder gate](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/a6c9a89e-8060-4b7b-afcd-b9ecc20e7de1)
+## Decoder:
+![DEcoder gate](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/50e7e0b2-f7d8-4d78-bc41-4a4f47af8f3e)
 
 ### TIMING DIGRAMS  
-
-
-
-
+## Encoder:
+![Encoder waveform](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/070b173c-ef94-452d-8ead-cb96e3a2b33e)
+## Decoder:
+![DEcoder wave](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/faf81706-d33f-4318-ae61-6c44cb3cf983)
 
 ### TRUTH TABLE 
-
-
-
-
-
+## Encoder:
+![encoder table](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/5def1092-3a0a-4208-acc8-3777a94725fd)
+## Decoder:
+![decoder table](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/4bd2f34a-6835-4e84-9b01-6af4e243812b)
 
 ### RESULTS 
+Thus the program to desing encoder and decoder is completed.
