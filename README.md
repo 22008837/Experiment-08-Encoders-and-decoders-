@@ -83,47 +83,55 @@ Developed by: C.Prabha
 RegisterNumber:  212222110032
 
 ## Decoder
-module decoder(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
-input a,b,c:
-output d0,d1,d2,d3,d4,d5,d6,d7;
-assign d0 = (~a&~b&~c);
-assign d1 = (~a&~b&c);
-assign d2 = (~a&b&~c);
-assign d3 = (~a&b&c);
-assign d4 = (a&~b&~c);
-assign d5 = (a&~b&c);
-assign d6 = (a&b&~c);
-assign d7 = (a&b&c);
+module decoder (a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input a0,a1,a2;
+output y0,y1,y2,y3,y4,y5,y6,y7;
+wire a0bar,a1bar,a2bar;
+not(a0bar,a0);
+not(a1bar,a1);
+not(a2bar,a2);
+and(y0,a0bar,a1bar,a2bar);
+and(y1,a0,a1bar,a2bar);
+and(y2,a0bar,a1,a2bar);
+and(y3,a0,a1,a2bar);
+and(y4,a0bar,a1bar,a2);
+and(y5,a0,a1bar,a2);
+and(y6,a0bar,a1,a2);
+and(y7,a0,a1,a2);
 endmodule
 
 ## Encoder
-module Encode(x,y,z,d0,d1,d2,d3,d4,d5,d6,d7);
-input d0,d1,d2,d3,d4,d5,d6,d7;
-output x,y,z;
-or (x,d4,d5,d6,d7);
-or (y,d2,d3,d5,d7);
-or (z,d1,d3,d5,d7);
+module encoder(a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+or(a0,y7,y5,y3,y1);
+or(a1,y7,y6,y3,y2);
+or(a2,y7,y6,y5,y4);
 endmodule
 ```
 */
 
 ### RTL LOGIC  
 ## Encoder:
-![Encoder gate](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/a6c9a89e-8060-4b7b-afcd-b9ecc20e7de1)
+![image](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/2a3b21fe-e67a-48a6-9cb9-509d4b470dfc)
+
 ## Decoder:
-![DEcoder gate](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/50e7e0b2-f7d8-4d78-bc41-4a4f47af8f3e)
+![image](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/47e9d770-9b43-4d91-837c-770eaa8d3eec)
+
 
 ### TIMING DIGRAMS  
 ## Encoder:
-![Encoder waveform](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/070b173c-ef94-452d-8ead-cb96e3a2b33e)
+![image](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/e663b3e0-72f3-44a7-be54-c542c1d7795c)
+
 ## Decoder:
-![DEcoder wave](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/faf81706-d33f-4318-ae61-6c44cb3cf983)
+![image](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/28b6c54d-115d-4420-b340-686af05fa32f)
 
 ### TRUTH TABLE 
 ## Encoder:
-![encoder table](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/5def1092-3a0a-4208-acc8-3777a94725fd)
+![image](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/f7ad60fd-4c98-41d6-a398-771fb02294f3)
+
 ## Decoder:
-![decoder table](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/4bd2f34a-6835-4e84-9b01-6af4e243812b)
+![image](https://github.com/22008837/Experiment-08-Encoders-and-decoders-/assets/120194155/8709c4e7-5e51-4b1d-aebd-27fe8c260dc7)
 
 ### RESULTS 
 Thus the program to desing encoder and decoder is completed.
